@@ -2,23 +2,19 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.set_page_config(page_title="For Sachee ❤️", page_icon="❤️", layout="centered")
-
 html_code = """
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
     margin: 0;
-    background: linear-gradient(
-        135deg,
-        #fff1f5,
-        #fde2e8,
-        #f8cdda
-    );
+    background: linear-gradient(135deg, #fff1f5, #fde2e8, #f8cdda);
     background-size: 200% 200%;
     animation: softFlow 25s ease infinite;
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: 'Segoe UI', sans-serif;
 }
 
@@ -33,23 +29,26 @@ body {
     position: fixed;
     bottom: -30px;
     animation: floatUp linear infinite;
-    opacity: 0.5;
+    opacity: 0.4;
+    z-index: 1;
 }
 
 @keyframes floatUp {
     from { transform: translateY(0); }
-    to { transform: translateY(-110vh); }
+    to { transform: translateY(-120vh); }
 }
 
 /* Card */
 .card {
     background: rgba(255,255,255,0.98);
-    padding: 50px;
-    border-radius: 35px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.22);
+    padding: 48px;
+    border-radius: 32px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.2);
     max-width: 760px;
-    margin: 110px auto;
-    animation: fadeIn 2s ease;
+    margin: 90px auto;
+    animation: fadeIn 1.8s ease;
+    position: relative;
+    z-index: 5;
 }
 
 @keyframes fadeIn {
@@ -63,40 +62,60 @@ body {
     font-size: 42px;
     font-weight: 700;
     color: #d62828;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 /* Typing text */
 #typing {
     font-size: 21px;
     color: #2b2b2b;
-    line-height: 2.1;
+    line-height: 2.05;
     text-align: justify;
     white-space: pre-wrap;
 }
 
 /* Ending */
 .forever {
-    margin-top: 35px;
+    margin-top: 30px;
     text-align: right;
     font-size: 23px;
     font-weight: 600;
     color: #e63946;
 }
-</style>
 
+/* 📱 Mobile adjustments */
+@media (max-width: 600px) {
+    .card {
+        margin: 70px 14px;
+        padding: 28px;
+        border-radius: 26px;
+    }
+
+    .title {
+        font-size: 30px;
+        margin-bottom: 22px;
+    }
+
+    #typing {
+        font-size: 17px;
+        line-height: 1.85;
+    }
+
+    .forever {
+        font-size: 18px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <!-- Hearts -->
-<div class="heart" style="left:8%; font-size:18px; animation-duration:10s;">❤️</div>
-<div class="heart" style="left:18%; font-size:22px; animation-duration:12s;">💖</div>
-<div class="heart" style="left:30%; font-size:16px; animation-duration:9s;">💗</div>
-<div class="heart" style="left:45%; font-size:26px; animation-duration:14s;">💞</div>
-<div class="heart" style="left:60%; font-size:20px; animation-duration:11s;">❤️</div>
-<div class="heart" style="left:75%; font-size:24px; animation-duration:13s;">💘</div>
-<div class="heart" style="left:88%; font-size:17px; animation-duration:10s;">💓</div>
+<div class="heart" style="left:10%; font-size:16px; animation-duration:12s;">❤️</div>
+<div class="heart" style="left:25%; font-size:20px; animation-duration:14s;">💖</div>
+<div class="heart" style="left:45%; font-size:14px; animation-duration:11s;">💗</div>
+<div class="heart" style="left:65%; font-size:22px; animation-duration:15s;">💞</div>
+<div class="heart" style="left:85%; font-size:18px; animation-duration:13s;">💘</div>
 
 <div class="card">
     <div class="title">For Sachee ❤️</div>
@@ -130,7 +149,7 @@ function typeWriter() {
     if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter, Math.random() * 40 + 20);
+        setTimeout(typeWriter, Math.random() * 35 + 20);
     }
 }
 typeWriter();
@@ -140,4 +159,3 @@ typeWriter();
 </html>
 """
 
-components.html(html_code, height=950)
