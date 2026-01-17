@@ -88,9 +88,19 @@ body {
         margin: 70px 14px;
         padding: 28px;
     }
-    .title { font-size: 30px; }
-    #typing { font-size: 17px; }
-    .forever { font-size: 18px; }
+
+    .title {
+        font-size: 30px;
+    }
+
+    #typing {
+        font-size: 17px;
+        line-height: 1.85;
+    }
+
+    .forever {
+        font-size: 18px;
+    }
 }
 </style>
 </head>
@@ -139,5 +149,5 @@ typeWriter();
 </html>
 """
 
-# ✅ THIS IS THE FIX
-components.html(html_code, height=900, scrolling=False)
+# ✅ Scroll enabled here
+components.html(html_code, height=900, scrolling=True)
