@@ -1,7 +1,12 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="For Sachee ❤️", page_icon="❤️", layout="centered")
+st.set_page_config(
+    page_title="For Sachee ❤️",
+    page_icon="❤️",
+    layout="centered"
+)
+
 html_code = """
 <!DOCTYPE html>
 <html>
@@ -24,7 +29,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Floating hearts */
 .heart {
     position: fixed;
     bottom: -30px;
@@ -38,7 +42,6 @@ body {
     to { transform: translateY(-120vh); }
 }
 
-/* Card */
 .card {
     background: rgba(255,255,255,0.98);
     padding: 48px;
@@ -56,7 +59,6 @@ body {
     to {opacity: 1; transform: translateY(0);}
 }
 
-/* Title */
 .title {
     text-align: center;
     font-size: 42px;
@@ -65,7 +67,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Typing text */
 #typing {
     font-size: 21px;
     color: #2b2b2b;
@@ -74,7 +75,6 @@ body {
     white-space: pre-wrap;
 }
 
-/* Ending */
 .forever {
     margin-top: 30px;
     text-align: right;
@@ -83,34 +83,20 @@ body {
     color: #e63946;
 }
 
-/* 📱 Mobile adjustments */
 @media (max-width: 600px) {
     .card {
         margin: 70px 14px;
         padding: 28px;
-        border-radius: 26px;
     }
-
-    .title {
-        font-size: 30px;
-        margin-bottom: 22px;
-    }
-
-    #typing {
-        font-size: 17px;
-        line-height: 1.85;
-    }
-
-    .forever {
-        font-size: 18px;
-    }
+    .title { font-size: 30px; }
+    #typing { font-size: 17px; }
+    .forever { font-size: 18px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Hearts -->
 <div class="heart" style="left:10%; font-size:16px; animation-duration:12s;">❤️</div>
 <div class="heart" style="left:25%; font-size:20px; animation-duration:14s;">💖</div>
 <div class="heart" style="left:45%; font-size:14px; animation-duration:11s;">💗</div>
@@ -135,12 +121,6 @@ When days feel heavy, thinking of you feels like rest.
 I don’t love you in loud declarations — I love you in pauses,
 in unsent thoughts, in the way my heart reaches for you without asking.
 
-There are parts of me that feel steadier because of you,
-and parts that feel braver just knowing you’re there.
-Loving you isn’t perfect, but it’s honest.
-It’s choosing you in quiet moments,
-and meaning it every single time.
-
 You are not something I found —
 you are something I keep.`;
 
@@ -159,3 +139,5 @@ typeWriter();
 </html>
 """
 
+# ✅ THIS IS THE FIX
+components.html(html_code, height=900, scrolling=False)
